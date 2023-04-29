@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block title_head %}
+    <title>Quimica</title>
+{% endblock title_head %}
+
 {% block probando %}
 
 <br>
@@ -16,16 +20,16 @@
             {% for química in químicas %}
             <div class="col-sm-6 align-items-center">
                 <div class="card-body">
-                <img src="{{química.ImagenPost.url}}" class="img-thumbnail" width="120px">
                 {{química.titulo}}
+                <br>
+                <br>
                 <a href="{% url 'detalle-quimica' química.id %}"><i class="bi bi-eye"></i></a>
                 {% if user.id == química.usuario.id %}
                 <a href="{% url 'editar-quimica' química.id %}"><i class="bi bi-pencil-fill"></i></a>
                 <a href="{% url 'eliminar-quimica' química.id %}"><i class="bi bi-trash text-danger"></i></a>
-                <br>
-                <br>
-                <br>
-                <br>
+                {% if química.ImagenPost %}
+                <img src="{{química.ImagenPost.url}}" class="img-thumbnail" width="120px">
+                {% endif %}
                 <br>
                 <br>
                 <br>

@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 from usuarios.models import InformacionExtra
 
 
-from usuarios.forms import MiFormularioDeCreacion,EdicionDatosUsuario
+from usuarios.forms import MiFormularioDeCreacion,EdicionDatosUsuario,CambioContraseña
 
 
 
@@ -64,6 +64,11 @@ def editar_perfil(request):
      return render(request, "usuarios/editar_perfil.html",{"formulario":formulario})
  
  
+# class CambioContraseña(PasswordChangeView):
+#     template_name = "usuarios/cambiar_contraseña.html"
+#     success_url = reverse_lazy("usuarios:editar_perfil")
+
 class CambioContraseña(PasswordChangeView):
+    form_class = CambioContraseña
     template_name = "usuarios/cambiar_contraseña.html"
     success_url = reverse_lazy("usuarios:editar_perfil")

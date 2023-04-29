@@ -1,15 +1,20 @@
 {% extends 'base.html' %}
 
+{% block title_head %}
+    <title>Edicio</title>
+{% endblock title_head %}
+
 {% block probando %}
 
 <br>
 <br>
+<br>
+<br>
 
 {% if user.id == química.usuario.id %}
-<div class="container">
 
-    <h4>Editar Post</h4>
-    
+<div class="container">
+    <h4>Editar Post</h4>   
 </div>
 
 <div class="container">
@@ -17,14 +22,18 @@
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
+            <br>
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
     </div>    
 </div>
+
 <br>
+
 {% else %}
 <div class="container">
-<h4>No tienes acceso a esta pagina!</h4>
+    <h4>No tienes acceso a esta pagina!</h4>
 </div>
 {% endif %}
+
 {% endblock probando %}

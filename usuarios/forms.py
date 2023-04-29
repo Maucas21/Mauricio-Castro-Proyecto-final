@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm,UserChangeForm
+from django.contrib.auth.forms import UserCreationForm,UserChangeForm,PasswordChangeForm
 
 
 class MiFormularioDeCreacion(UserCreationForm):
@@ -12,6 +12,7 @@ class MiFormularioDeCreacion(UserCreationForm):
         model = User
         fields = ["username","email","password1","password2"]
         help_texts = {k:"" for k in fields}
+
         
 class EdicionDatosUsuario(UserChangeForm):
     password = None
@@ -25,3 +26,25 @@ class EdicionDatosUsuario(UserChangeForm):
         model = User
         
         fields = ["email","first_name","last_name","avatar"]
+
+
+class CambioContraseña(PasswordChangeForm):
+    old_password = forms.CharField(
+        label=("Contraseña actual"),
+        strip=False,
+        widget=forms.PasswordInput(attrs={'autocomplete': 'current-password'}),
+        help_text='',
+    )
+    new_password1 = forms.CharField(
+        label=("Nueva contraseña"),
+        strip=False,
+        widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'}),
+        help_text='',
+    )
+    new_password2 = forms.CharField(
+        label=("Confirmar contraseña"),
+        strip=False,
+        widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'}),
+        help_text='',
+    )
+    

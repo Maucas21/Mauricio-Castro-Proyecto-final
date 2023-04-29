@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block title_head %}
+    <title>Biologia</title>
+{% endblock title_head %}
+
 {% block probando %}
 
 <br>
@@ -7,25 +11,25 @@
 <br>
 
 <div class="container text-center">
-
     <h1>Biología</h1>
 </div>
 
 <br>
 <div class="container text-center">
     <div class="row">
-            {% for biología in biologías %}
+            {% for biología  in biologías %}
             <div class="col-sm-6 align-items-center">
                 <div class="card-body">
-                
-
-
-                <img src="{{biología.ImagenPost.url}}" class="img-thumbnail" width="120px">
                 {{biología.titulo}}
+                <br>
+                <br>
                 <a href="{% url 'detalle-biologia' biología.id %}"><i class="bi bi-eye"></i></a>
                 {% if user.id == biología.usuario.id %}
                 <a href="{% url 'editar-biologia' biología.id %}"><i class="bi bi-pencil-fill"></i></a>
                 <a href="{% url 'eliminar-biologia' biología.id %}"><i class="bi bi-trash text-danger"></i></a>
+                {% if biología.ImagenPost %}
+                <img src="{{biología.ImagenPost.url}}" class="img-thumbnail" width="120px">
+                {% endif %}
                 <br>
                 <br>
                 <br>

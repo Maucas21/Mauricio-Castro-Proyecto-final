@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block title_head %}
+    <title>Borrar</title>
+{% endblock title_head %}
+
 {% block probando %}
 
 <br>
@@ -11,12 +15,13 @@
 <br>
 <br>
 
-
 {% if user.id == biología.usuario.id %}
 <div class="container text-center">
 
 <form method="post">{% csrf_token %}
     Estás seguro que deseas borrar el post {{biología.titulo}}?
+    <br>
+    <br>
     <p>
         <button type="submit" class="btn btn-danger">Eliminar</button>
     </p>
@@ -28,6 +33,7 @@
 <h4>No tienes acceso a esta pagina!</h4>
 </div>
 {% endif %}
+
 <br>
 <br>
 <br>

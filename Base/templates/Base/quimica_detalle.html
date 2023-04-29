@@ -1,24 +1,31 @@
 {% extends 'base.html' %}
 
+{% block title_head %}
+    <title>Detalle</title>
+{% endblock title_head %}
+
 {% block probando %}
 
 <br>
 <br>
-
-<div class="container">
-
-<p><h2>{{química.titulo}}</h2></p>
-
-{% if química.ImagenPost %}
-    <p><img src="{{química.ImagenPost.url}}" alt=""></p>
-{% endif %}
-<p>Titulo: {{química.titulo}}</p>
-<p>Autor: {{química.usuario}}</p>
-<p>Descripción: {{química.descripcion}}</p>
-<p>Fecha de publicacion: {{química.FechaPublicacion}}</p>
-</div>
 <br>
+
 <div class="container">
+
+    <p><h2>{{química.titulo}}</h2></p>
+    {% if química.ImagenPost %}
+        <p><img src="{{química.ImagenPost.url}}" alt=""></p>
+    {% endif %}
+    <p>Autor: {{química.usuario}}</p>
+    <p>Descripción: {{química.descripcion}}</p>
+    <p>Fecha de publicacion: {{química.FechaPublicacion}}</p>
+
+</div>
+
+<br>
+
+<div class="container">
+
     <h4>Comentarios...</h4>
     <br>
     <div class="container">
@@ -34,6 +41,9 @@
     {% endif %}
     <a href="{% url 'comentario' química.pk %}">Agrega un Comentario</a>
     </div>
+
 </div>
+
 <br>
+
 {% endblock probando %}

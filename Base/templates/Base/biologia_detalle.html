@@ -1,28 +1,31 @@
 {% extends 'base.html' %}
 
+{% block title_head %}
+    <title>Detalle</title>
+{% endblock title_head %}
+
 {% block probando %}
 
 <br>
 <br>
+<br>
 
 <div class="container">
 
-<p><h2>{{biología.titulo}}</h2></p>
-{% if biología.ImagenPost %}
-    <p><img src="{{biología.ImagenPost.url}}" alt=""></p>
-{% endif %}
-<p>Titulo: {{biología.titulo}}</p>
-<p>Autor: {{biología.usuario}}</p>
-{% comment %} <p>Modelo: {{amplificador.modelo}}</p> {% endcomment %}
-<p>Descripción: {{biología.descripcion}}</p>
-<p>Fecha de publicacion: {{biología.FechaPublicacion}}</p>
-{% comment %} <p>Precio(US$): {{amplificador.precio}}</p>
-<p>Teléfono de Contacto: {{amplificador.telefonoContacto}}</p>
-<p>Email de Contacto: {{amplificador.emailContacto}}</p> {% endcomment %}
+    <p><h2>{{biología.titulo}}</h2></p>
+    {% if biología.ImagenPost %}
+        <p><img src="{{biología.ImagenPost.url}}" alt=""></p>
+    {% endif %}
+    <p>Autor: {{biología.usuario}}</p>
+    <p>Descripción: {{biología.descripcion}}</p>
+    <p>Fecha de publicacion: {{biología.FechaPublicacion}}</p>
 
 </div>
+
 <br>
+
 <div class="container">
+
     <h4>Comentarios...</h4>
     <br>
     <div class="container">
@@ -38,6 +41,9 @@
     {% endif %}
     <a href="{% url 'comentario' biología.pk %}">Agrega un Comentario</a>
     </div>
+    
 </div>
+
 <br>
+
 {% endblock probando %}

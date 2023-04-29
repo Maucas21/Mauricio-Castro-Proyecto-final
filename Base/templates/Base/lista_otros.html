@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block title_head %}
+    <title>Otros</title>
+{% endblock title_head %}
+
 {% block probando %}
 
 <br>
@@ -7,7 +11,6 @@
 <br>
 
 <div class="container text-center">
-
     <h1>Otros</h1>
 </div>
 
@@ -17,12 +20,16 @@
             {% for otros in otross %}
             <div class="col-sm-6 align-items-center">
                 <div class="card-body">
-                <img src="{{otros.ImagenPost.url}}" class="img-thumbnail" width="120px">
                 {{otros.titulo}}
+                <br>
+                <br>
                 <a href="{% url 'detalle-otros' otros.id %}"><i class="bi bi-eye"></i></a>
                 {% if user.id == otros.usuario.id %}
                 <a href="{% url 'editar-otros' otros.id %}"><i class="bi bi-pencil-fill"></i></a>
                 <a href="{% url 'eliminar-otros' otros.id %}"><i class="bi bi-trash text-danger"></i></a>
+                {% if otros.ImagenPost %}
+                <img src="{{otros.ImagenPost.url}}" class="img-thumbnail" width="120px">
+                {% endif %}
                 <br>
                 <br>
                 <br>
