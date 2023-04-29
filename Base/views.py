@@ -41,7 +41,6 @@ class PostCreacion(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super(PostCreacion, self).form_valid(form)
     
-# esto estaba asi success_url = reverse_lazy("lista-animales") ver si da errores a fututo
 
 
 

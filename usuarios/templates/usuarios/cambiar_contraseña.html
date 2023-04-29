@@ -4,18 +4,26 @@
                     <title>Cambio contraseña</title>
 {% endblock title_head %}
 
-{% block h1_header %}
-                    <h1>Cambio contraseña</h1>
-{% endblock h1_header %}
 
-{% block contenido %}
+<title>Cambiar contraseña</title>
+{% block probando %}
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 {% if form.errors %}
-<p style="color:red">Hay errores</p>
+<p style="color:red">Hay errores en los campos completado, vuelva a intentarlo</p>
 {% endif %}
 
 <form action={% url 'usuarios:cambio_contraseña' %} method="post">
- 
+
     {% csrf_token %}
     <table>
         {{form}}
@@ -23,4 +31,4 @@
     <button>Cambiar</button>
 
 </form>
-{% endblock contenido %}
+{% endblock probando %}
