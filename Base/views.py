@@ -8,28 +8,10 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView,UpdateView,DeleteView
 from django.views.generic.detail import DetailView
 
-# from django.db.models.query import EmptyQuerySet
-# from django.db.models import Q
-
-
 
 def mi_vista(request):
-    # return HttpResponse("<h1>Mi primera vista</h1>")
+    
     return render(request, r"Base/index.html")
-
-
-# CREACION POST
-
-# class PostCreacion(LoginRequiredMixin, CreateView):
-#     model = Blog
-#     form_class = FormularioNuevoPost
-#     success_url = reverse_lazy("lista-animales")
-#     template_name = 'Base/Post_creacion.html'
-
-#     def form_valid(self, form):
-#         form.instance.user = self.request.user
-#         return super(PostCreacion, self).form_valid(form)
-        
 
 
 # CREACION POST
@@ -43,10 +25,8 @@ class PostCreacion(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(PostCreacion, self).form_valid(form)
+
     
-
-
-
 # COMENTARIOS
 
 class ComentarioPagina(LoginRequiredMixin, CreateView):
@@ -58,9 +38,9 @@ class ComentarioPagina(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.comentario_id = self.kwargs['pk']
         return super(ComentarioPagina, self).form_valid(form)
+   
     
 #CATEGORIAS 
-
 
 #Biologia
 
@@ -90,7 +70,6 @@ class BiologiaBorrar(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('lista-biologia')
     context_object_name = 'biología'
     template_name = 'Base/biologia_borrar.html'
-
 
     
 #Química
@@ -123,7 +102,6 @@ class QuimicaBorrar(LoginRequiredMixin, DeleteView):
     template_name = 'Base/quimica_borrar.html'
 
 
-
 #Fisica
 
 class FisicaLista(LoginRequiredMixin, ListView):
@@ -153,36 +131,8 @@ class FisicaBorrar(LoginRequiredMixin, DeleteView):
     context_object_name = 'fisica'
     template_name = 'Base/fisica_borrar.html'
     
-
-
-
-#Otros
-
-# class OtrosLista(LoginRequiredMixin, ListView):
-#     context_object_name = 'otross'
-#     template_name = 'Base/lista_otros.html'
-#     login_url = "/usuarios/login"
     
-#     def get_queryset(self):
-#         queryset = Blog.objects.filter(categoria__startswith='otros')
-#         if queryset.exists() and queryset[0].ImagenPost:
-#             return queryset
-#         else:
-#             return EmptyQuerySet()
-        
-        
-
-# class OtrosLista(LoginRequiredMixin, ListView):
-#     context_object_name = 'otross'
-#     template_name = 'Base/lista_otros.html'
-#     login_url = "/usuarios/login"
-
-#     def get_queryset(self):
-#         queryset = Blog.objects.filter(Q(categoria__startswith='otros') & Q(categoria=True))
-#         if queryset.exists() and queryset[0].ImagenPost:
-#             return queryset
-#         else:
-#             return Blog.objects.none()
+#Otros
 
 class OtrosLista(LoginRequiredMixin, ListView):
     context_object_name = 'otross'
