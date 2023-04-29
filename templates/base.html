@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        {% block title_head %}
+        <title>Home</title>
+        {% endblock title_head %}
+        
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href={% static 'Base/css/styles.css' %} rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        {% comment %} <nav class="navbar navbar-light bg-light static-top"> {% endcomment %}
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark py-2 fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href={% url 'inicio' %}>Inicio</a>
+                {% comment %} <a class="navbar-brand" href={% url 'Mostrar-fecha' %}>Mostrar fecha</a> {% endcomment %}
+                {% comment %} <a class="navbar-brand" href={% url 'template' %}>Template</a> {% endcomment %}
+                {% comment %} <a class="navbar-brand" href={% url 'lista-animales' %}>Listar animal</a> {% endcomment %}
+                
+                <a class="navbar-brand" href={% url 'lista-biologia' %}>Biología</a>
+                <a class="navbar-brand" href={% url 'lista-fisica' %}>Fisica</a>
+                <a class="navbar-brand" href={% url 'lista-quimica' %}>Quimica</a>
+                <a class="navbar-brand" href={% url 'lista-otros' %}>Otros</a>
+                
+                {% comment %} <a class="navbar-brand" href={% url 'pruebate' %}>PruebaTe</a> {% endcomment %}
+                {% comment %} <a class="navbar-brand" href={% url 'prueba_ren' %}>Prueba Ren</a> {% endcomment %}
+                {% if request.user.is_authenticated %}
+                {% if request.user.informacionextra.avatar %}
+                <img src={{request.user.informacionextra.avatar.url}} alt="" height="30px">
+                {% endif %}
+                <a href={% url 'usuarios:editar_perfil' %}> {{request.user.username}} </a>
+                <a class="btn btn-primary" href={% url 'usuarios:logout' %}>Cerrar sesion</a>
+                {% else %}
+                <a class="btn btn-primary" href={% url 'usuarios:login' %}>Iniciar sesion</a>
+                <a class="btn btn-primary" href={% url 'usuarios:registro' %}>Registraté</a>
+                {% endif %}
+               
+                
+                
+            </div>
+        </nav>
+
+        <!-- Masthead-->
+        {% comment %} {% block header %} {% endcomment %}
+        {% comment %} <header class="masthead">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="text-center text-white">
+                            <!-- Page heading-->
+                            {% block h1_header %}
+                            <h1 class="mb-5">Estas usando el H1 base</h1>
+                            {% endblock h1_header %}
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>  {% endcomment %}
+        {% block probando %}
+        
+        <!-- Inicio -->
+
+        <br>
+        <br>
+        <br>
+        <section id="Inicio" class="text-dark p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+          <div class="container text-center">
+            <div class="">
+                <div>
+                    <h2>Bienvenido a <span class="text-primary">Mundo ciencia</span></h2>
+                </div>
+            </div>
+        </div>
+        
+        </section>    
+        
+
+            <!-- Nuevos post -->
+
+    <section class="p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+        <div class="container">
+            <div class="">
+                <div class="text-center">
+                    <p class="lead my-4">
+                      Comparte tu conocimiento al mundo
+                    </p>
+                    <a href="{% url 'nuevo' %}"><button type="submit" class="btn btn-primary">Agregalo acá</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+        {% comment %} {% endblock header %} {% endcomment %}
+
+        {% endblock probando %}
+
+
+
+        {% comment %} {% endblock header %} {% endcomment %}
+        
+        {% block contenido  %}
+        {% endblock contenido %}
+        <!-- Footer-->
+        <footer class="footer bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                        <ul class="list-inline mb-2">
+                            <li class="list-inline-item"><a href="#!">About</a></li>
+                            
+                        </ul>
+                        <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2023. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item me-4">
+                                <a href="#!"><i class="bi-facebook fs-3"></i></a>
+                            </li>
+                            <li class="list-inline-item me-4">
+                                <a href="#!"><i class="bi-twitter fs-3"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#!"><i class="bi-instagram fs-3"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src={% static 'Base/js/scripts.js' %}></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>

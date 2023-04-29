@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block probando %}
+
+<br>
+<br>
+
+<div class="container">
+
+<p><h2>{{fisica.titulo}}</h2></p>
+{% if fisica.ImagenPost %}
+    <p><img src="{{fisica.ImagenPost.url}}" alt=""></p>
+{% endif %}
+<p>Titulo: {{fisica.titulo}}</p>
+<p>Autor: {{fisica.usuario}}</p>
+<p>Descripción: {{fisica.descripcion}}</p>
+<p>Fecha de publicacion: {{fisica.FechaPublicacion}}</p>
+
+
+</div>
+<br>
+<div class="container">
+    <h4>Comentarios...</h4>
+    <br>
+    <div class="container">
+    {% if not fisica.comentarios.all %}
+        No han comentado este instrumento
+    {% else %}
+        {% for comentario in fisica.comentarios.all %}
+        <p><strong>{{comentario.nombre}}</strong></p>
+        <p>{{comentario.mensaje}}</p>
+        <p><small>{{comentario.fechaComentario}}</small></p>
+        <hr>
+        {% endfor %}
+    {% endif %}
+    <a href="{% url 'comentario' fisica.pk %}">Agrega un Comentario</a>
+    </div>
+</div>
+<br>
+{% endblock probando %}

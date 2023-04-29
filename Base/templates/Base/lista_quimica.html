@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block probando %}
+
+<br>
+<br>
+<br>
+
+<div class="container text-center">
+    <h1>Química</h1>
+</div>
+
+<br>
+<div class="container text-center">
+    <div class="row">
+            {% for química in químicas %}
+            <div class="col-sm-6 align-items-center">
+                <div class="card-body">
+                <img src="{{química.ImagenPost.url}}" class="img-thumbnail" width="120px">
+                {{química.titulo}}
+                <a href="{% url 'detalle-quimica' química.id %}"><i class="bi bi-eye"></i></a>
+                {% if user.id == química.usuario.id %}
+                <a href="{% url 'editar-quimica' química.id %}"><i class="bi bi-pencil-fill"></i></a>
+                <a href="{% url 'eliminar-quimica' química.id %}"><i class="bi bi-trash text-danger"></i></a>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+</div>
+
+{% endblock probando %}

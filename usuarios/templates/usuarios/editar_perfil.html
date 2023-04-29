@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% comment %} 
+{% block title_head %}
+                    <title>Editar</title>
+{% endblock title_head %} {% endcomment %}
+
+{% comment %} {% block h1_header %}
+                    <h1>Editar registro</h1>
+{% endblock h1_header %} {% endcomment %}
+
+{% block probando %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% if formulario.errors %}
+<p style="color:red">Se han detectado errores, verifique los campos completados y vuelva a intentarlo</p>
+{% endif %}
+
+<form action={% url 'usuarios:editar_perfil' %} method="post", enctype="multipart/form-data">
+ 
+    {% csrf_token %}
+    <table>
+        {{formulario}}
+    </table>
+    <button type="button"><a class="navbar-brand" href={% url 'usuarios:cambio_contraseña' %} >Cambiar contraseña</button>
+    <button>Guardar cambios</button>
+
+</form>
+{% endblock probando %}

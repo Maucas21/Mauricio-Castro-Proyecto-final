@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+                    <title>Cambio contraseña</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+                    <h1>Cambio contraseña</h1>
+{% endblock h1_header %}
+
+{% block contenido %}
+
+{% if form.errors %}
+<p style="color:red">Hay errores</p>
+{% endif %}
+
+<form action={% url 'usuarios:cambio_contraseña' %} method="post">
+ 
+    {% csrf_token %}
+    <table>
+        {{form}}
+    </table>
+    <button>Cambiar</button>
+
+</form>
+{% endblock contenido %}

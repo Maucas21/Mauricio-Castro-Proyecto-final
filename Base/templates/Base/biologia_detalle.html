@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block probando %}
+
+<br>
+<br>
+
+<div class="container">
+
+<p><h2>{{biología.titulo}}</h2></p>
+{% if biología.ImagenPost %}
+    <p><img src="{{biología.ImagenPost.url}}" alt=""></p>
+{% endif %}
+<p>Titulo: {{biología.titulo}}</p>
+<p>Autor: {{biología.usuario}}</p>
+{% comment %} <p>Modelo: {{amplificador.modelo}}</p> {% endcomment %}
+<p>Descripción: {{biología.descripcion}}</p>
+<p>Fecha de publicacion: {{biología.FechaPublicacion}}</p>
+{% comment %} <p>Precio(US$): {{amplificador.precio}}</p>
+<p>Teléfono de Contacto: {{amplificador.telefonoContacto}}</p>
+<p>Email de Contacto: {{amplificador.emailContacto}}</p> {% endcomment %}
+
+</div>
+<br>
+<div class="container">
+    <h4>Comentarios...</h4>
+    <br>
+    <div class="container">
+    {% if not biología.comentarios.all %}
+        Aún no hay comentarios sobre este post
+    {% else %}
+        {% for comentario in biología.comentarios.all %}
+        <p><strong>{{comentario.nombre}}</strong></p>
+        <p>{{comentario.mensaje}}</p>
+        <p><small>{{comentario.fechaComentario}}</small></p>
+        <hr>
+        {% endfor %}
+    {% endif %}
+    <a href="{% url 'comentario' biología.pk %}">Agrega un Comentario</a>
+    </div>
+</div>
+<br>
+{% endblock probando %}

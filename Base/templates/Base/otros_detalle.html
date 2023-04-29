@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block probando %}
+
+<br>
+<br>
+
+<div class="container">
+
+<p><h2>{{otros.titulo}}</h2></p>
+{% if otros.ImagenPost %}
+    <p><img src="{{otros.ImagenPost.url}}" alt=""></p>
+{% endif %}
+<p>Titulo: {{otros.titulo}}</p>
+<p>Autor: {{otros.usuario}}</p>
+<p>Descripción: {{otros.descripcion}}</p>
+<p>Fecha de publicacion: {{otros.FechaPublicacion}}</p>
+</div>
+<br>
+<div class="container">
+    <h4>Comentarios...</h4>
+    <br>
+    <div class="container">
+    {% if not otros.comentarios.all %}
+        No han comentado este instrumento
+    {% else %}
+        {% for comentario in otros.comentarios.all %}
+        <p><strong>{{comentario.nombre}}</strong></p>
+        <p>{{comentario.mensaje}}</p>
+        <p><small>{{comentario.fechaComentario}}</small></p>
+        <hr>
+        {% endfor %}
+    {% endif %}
+    <a href="{% url 'comentario' otros.pk %}">Agrega un Comentario</a>
+    </div>
+</div>
+<br>
+{% endblock probando %}
