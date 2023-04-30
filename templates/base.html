@@ -28,7 +28,7 @@
                 
                 <a class="navbar-brand" href={% url 'lista-biologia' %}>Biología</a>
                 <a class="navbar-brand" href={% url 'lista-fisica' %}>Fisica</a>
-                <a class="navbar-brand" href={% url 'lista-quimica' %}>Quimica</a>
+                <a class="navbar-brand" href={% url 'lista-quimica' %}>Química</a>
                 <a class="navbar-brand" href={% url 'lista-otros' %}>Otros</a>
                 
                 {% if request.user.is_authenticated %}
@@ -39,7 +39,7 @@
                 <a class="btn btn-primary" href={% url 'usuarios:logout' %}>Cerrar sesion</a>
                 {% else %}
                 <a class="btn btn-primary" href={% url 'usuarios:login' %}>Iniciar sesion</a>
-                <a class="btn btn-primary" href={% url 'usuarios:registro' %}>Registraté</a>
+                <a class="btn btn-primary" href={% url 'usuarios:registro' %}>Regístrate</a>
                 {% endif %}
                
                 

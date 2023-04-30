@@ -17,6 +17,13 @@ Los usuarios de esta web podrán:
 6. Registrar un nuevo usuario 
 
 
+Acerca del código:
+
+1. Nucleo: contiene todo lo relacionado con las configuraciones del proyecto y lo necesario para que este funcione 
+2. Base: aqui esta todo lo que hace funcional a la web sin la parte de usuarios 
+3. Usuarios: en esta carpeta encontraremos todo lo concerniente al usuario
+
+
 Tecnologías utilizadas:
 
 1. Python
