@@ -40,7 +40,7 @@ class ComentarioPagina(LoginRequiredMixin, CreateView):
         form.instance.comentario_id = self.kwargs['pk']
         return super(ComentarioPagina, self).form_valid(form)
    
-    
+   
 #CATEGORIAS 
 
 #Biologia
@@ -50,8 +50,8 @@ class BiologiaLista(LoginRequiredMixin, ListView):
     queryset = Blog.objects.filter(categoria__startswith='biología')
     template_name = 'Base/lista_biologia.html'
     login_url = "/usuarios/login"
-
-
+    
+    
 class BiologiaDetalle(LoginRequiredMixin, DetailView):
     model = Blog
     context_object_name = 'biología'
