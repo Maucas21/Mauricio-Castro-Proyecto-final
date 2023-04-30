@@ -30,6 +30,8 @@ urlpatterns = [
     path('Editar-Otros/<int:pk>/', views.OtrosUpdate.as_view(), name='editar-otros'),
     path('Detalle-Otros/<int:pk>/comentario/', views.ComentarioPagina.as_view(), name='comentario'),
     
+    path('acercaDeMi/', views.about, name='acerca_de_mi'),
+    
     
     
     ]

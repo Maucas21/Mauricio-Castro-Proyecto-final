@@ -9,7 +9,7 @@ class FormularioNuevoPost(forms.ModelForm):
         fields = ('usuario', 'titulo', 'categoria', 'descripcion', 'ImagenPost')
 
         widgets = {
-            'usuario' : forms.Select(attrs={'class': 'form-control'}),
+            'usuario': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id':'usuario_id', 'type':'hidden'}),
             'titulo' : forms.TextInput(attrs={'class': 'form-control'}),
             'categoria' : forms.Select(attrs={'class': 'form-control'}),
             'descripcion' : forms.Textarea(attrs={'class': 'form-control'}),
@@ -19,10 +19,10 @@ class FormularioNuevoPost(forms.ModelForm):
 class ActualizacionPost(forms.ModelForm):
     class Meta:
         model = Blog
-        fields = ('usuario', 'titulo', 'categoria', 'descripcion', 'ImagenPost')
+        fields = ( 'titulo', 'categoria', 'descripcion', 'ImagenPost')
 
         widgets = {
-            'usuario' : forms.Select(attrs={'class': 'form-control'}),
+            # 'usuario' : forms.Select(attrs={'class': 'form-control'}),
             'titulo' : forms.TextInput(attrs={'class': 'form-control'}),
             'categoria' : forms.Select(attrs={'class': 'form-control'}),
             'descripcion' : forms.Textarea(attrs={'class': 'form-control'}),

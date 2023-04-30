@@ -2,6 +2,7 @@ from django.shortcuts import render
 from Base.models import Blog,Comentario
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from Base.forms import FormularioNuevoPost,ActualizacionPost,FormularioComentario
 from django.views.generic.list import ListView
@@ -160,3 +161,8 @@ class OtrosBorrar(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('lista-otros')
     context_object_name = 'otros'
     template_name = 'Base/otros_borrar.html' 
+    
+# ACERCA DE MI
+
+def about(request):
+    return render(request, 'Base/about_me.html', {})
