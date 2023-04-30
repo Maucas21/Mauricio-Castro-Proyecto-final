@@ -33,6 +33,10 @@ Tecnologías utilizadas:
 5. CSS 
 6. Javascript 
 
+Video descriptivo:
+
+https://youtu.be/0P-NLNlzw9g
+
 
 Limitaciones de la web: 
 
