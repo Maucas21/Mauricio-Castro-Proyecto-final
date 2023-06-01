@@ -10,7 +10,7 @@ class Blog(models.Model):
     ('otros','Otros'),
     )
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    titulo = models.CharField(max_length=200)
+    titulo = RichTextField(max_length=200)
     categoria = models.CharField(max_length=15, choices=BlogSeleccion, default='biología')
     descripcion = RichTextField(null=True, blank=True)
     FechaPublicacion = models.DateTimeField(auto_now_add=True)
@@ -25,7 +25,7 @@ class Blog(models.Model):
 class Comentario(models.Model):
     comentario = models.ForeignKey(Blog, related_name='comentarios', on_delete=models.CASCADE, null=True)
     nombre = models.CharField(max_length=40)
-    mensaje = models.TextField(null=True, blank=True)
+    mensaje = RichTextField(null=True, blank=True)
     FechaComentario = models.DateTimeField(auto_now_add=True)
 
     class Meta:

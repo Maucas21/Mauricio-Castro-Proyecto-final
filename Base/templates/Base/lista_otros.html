@@ -20,9 +20,9 @@
             {% for otros in otross %}
             <div class="col-sm-6 align-items-center">
                 <div class="card-body">
-                {{otros.titulo}}
+                {{otros.titulo | safe}}
                 <br>
-                <br>
+                
                 <a href="{% url 'detalle-otros' otros.id %}"><i class="bi bi-eye"></i></a>
                 {% if user.id == otros.usuario.id %}
                 <a href="{% url 'editar-otros' otros.id %}"><i class="bi bi-pencil-fill"></i></a>

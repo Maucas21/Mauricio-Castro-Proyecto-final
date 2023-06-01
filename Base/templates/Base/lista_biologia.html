@@ -20,9 +20,9 @@
             {% for biología  in biologías %}
             <div class="col-sm-6 align-items-center">
                 <div class="card-body">
-                {{biología.titulo}}
+                {{biología.titulo | safe}}
                 <br>
-                <br>
+            
                 <a href="{% url 'detalle-biologia' biología.id %}"><i class="bi bi-eye"></i></a>
                 {% if user.id == biología.usuario.id %}
                 <a href="{% url 'editar-biologia' biología.id %}"><i class="bi bi-pencil-fill"></i></a>

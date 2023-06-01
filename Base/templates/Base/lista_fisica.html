@@ -20,9 +20,9 @@
             {% for fisica in fisicas %}
             <div class="col-sm-6 align-items-center">
                 <div class="card-body">
-                {{fisica.titulo}}
+                {{fisica.titulo | safe}}
                 <br>
-                <br>
+                
                 <a href="{% url 'detalle-fisica' fisica.id %}"><i class="bi bi-eye"></i></a>
                 {% if user.id == fisica.usuario.id %}
                 <a href="{% url 'editar-fisica' fisica.id %}"><i class="bi bi-pencil-fill"></i></a>

@@ -20,9 +20,9 @@
             {% for química in químicas %}
             <div class="col-sm-6 align-items-center">
                 <div class="card-body">
-                {{química.titulo}}
+                {{química.titulo | safe}}
                 <br>
-                <br>
+                
                 <a href="{% url 'detalle-quimica' química.id %}"><i class="bi bi-eye"></i></a>
                 {% if user.id == química.usuario.id %}
                 <a href="{% url 'editar-quimica' química.id %}"><i class="bi bi-pencil-fill"></i></a>

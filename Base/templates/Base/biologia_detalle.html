@@ -12,7 +12,7 @@
 
 <div class="container">
 
-    <p><h2>{{biología.titulo}}</h2></p>
+    <p><h2>{{biología.titulo | safe}}</h2></p>
     {% if biología.ImagenPost %}
         <p><img src="{{biología.ImagenPost.url}}" alt=""></p>
     {% endif %}
@@ -34,7 +34,7 @@
     {% else %}
         {% for comentario in biología.comentarios.all %}
         <p><strong>{{comentario.nombre}}</strong></p>
-        <p>{{comentario.mensaje}}</p>
+        <p>{{comentario.mensaje | safe}}</p>
         <p><small>{{comentario.fechaComentario}}</small></p>
         <hr>
         {% endfor %}

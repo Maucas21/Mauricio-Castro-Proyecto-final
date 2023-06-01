@@ -12,7 +12,7 @@
 
 <div class="container">
 
-    <p><h2>{{otros.titulo}}</h2></p>
+    <p><h2>{{otros.titulo | safe}}</h2></p>
     {% if otros.ImagenPost %}
         <p><img src="{{otros.ImagenPost.url}}" alt=""></p>
     {% endif %}
@@ -34,7 +34,7 @@
     {% else %}
         {% for comentario in otros.comentarios.all %}
         <p><strong>{{comentario.nombre}}</strong></p>
-        <p>{{comentario.mensaje}}</p>
+        <p>{{comentario.mensaje | safe}}</p>
         <p><small>{{comentario.fechaComentario}}</small></p>
         <hr>
         {% endfor %}
