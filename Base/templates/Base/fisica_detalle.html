@@ -17,7 +17,7 @@
         <p><img src="{{fisica.ImagenPost.url}}" alt=""></p>
     {% endif %}
     <p>Autor: {{fisica.usuario}}</p>
-    <p>Descripción: {{fisica.descripcion}}</p>
+    <p>Descripción: {{fisica.descripcion | safe}}</p>
     <p>Fecha de publicacion: {{fisica.FechaPublicacion}}</p>
 
 </div>

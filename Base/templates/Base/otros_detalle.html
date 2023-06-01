@@ -17,7 +17,7 @@
         <p><img src="{{otros.ImagenPost.url}}" alt=""></p>
     {% endif %}
     <p>Autor: {{otros.usuario}}</p>
-    <p>Descripción: {{otros.descripcion}}</p>
+    <p>Descripción: {{otros.descripcion | safe}}</p>
     <p>Fecha de publicacion: {{otros.FechaPublicacion}}</p>
 
 </div>

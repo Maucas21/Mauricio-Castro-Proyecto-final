@@ -17,7 +17,7 @@
         <p><img src="{{biología.ImagenPost.url}}" alt=""></p>
     {% endif %}
     <p>Autor: {{biología.usuario}}</p>
-    <p>Descripción: {{biología.descripcion}}</p>
+    <p>Descripción: {{biología.descripcion | safe}}</p>
     <p>Fecha de publicacion: {{biología.FechaPublicacion}}</p>
 
 </div>

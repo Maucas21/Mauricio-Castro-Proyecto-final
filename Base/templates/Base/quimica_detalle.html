@@ -17,7 +17,7 @@
         <p><img src="{{química.ImagenPost.url}}" alt=""></p>
     {% endif %}
     <p>Autor: {{química.usuario}}</p>
-    <p>Descripción: {{química.descripcion}}</p>
+    <p>Descripción: {{química.descripcion | safe}}</p>
     <p>Fecha de publicacion: {{química.FechaPublicacion}}</p>
 
 </div>
