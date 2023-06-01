@@ -17,6 +17,9 @@
 <br>
 <div class="container text-center">
     <div class="row">
+
+        {% if object_list %}
+
             {% for biología  in biologías %}
             <div class="col-sm-6 align-items-center">
                 <div class="card-body">
@@ -38,6 +41,16 @@
                 </div>
             </div>
             {% endfor %}
+
+        {% else %}
+            <h1 style="color: blue">Aún no hay publicaciones</h1>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h3 style="color: blue">Anímate a compartir tus conocimientos</h3>
+        {% endif %}  
+
     </div>
 </div>
 

@@ -19,7 +19,7 @@
 <div class="container text-center">
 
 <form method="post">{% csrf_token %}
-    Estás seguro que deseas borrar el post {{fisica.titulo}}?
+    Estás seguro que deseas borrar el post {{fisica.titulo | safe}}?
     <br>
     <br>
     <p>
