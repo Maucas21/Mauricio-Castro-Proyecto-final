@@ -31,7 +31,7 @@ def login(request):
 def registro(request):
     
      if request.method == "POST":
-        # formulario = UserCreationForm(request.POST)
+        
         formulario = MiFormularioDeCreacion(request.POST)
         
         if formulario.is_valid():
@@ -40,7 +40,7 @@ def registro(request):
         else:
             return render(request, "usuarios/registro.html",{"formulario":formulario})
     
-    # formulario = UserCreationForm(request.POST)
+    
      formulario = MiFormularioDeCreacion()
      return render(request, "usuarios/registro.html",{"formulario":formulario})
  
@@ -62,11 +62,7 @@ def editar_perfil(request):
     
      formulario = EdicionDatosUsuario(initial={"avatar": request.user.informacionextra.avatar}, instance = request.user)
      return render(request, "usuarios/editar_perfil.html",{"formulario":formulario})
- 
- 
-# class CambioContraseña(PasswordChangeView):
-#     template_name = "usuarios/cambiar_contraseña.html"
-#     success_url = reverse_lazy("usuarios:editar_perfil")
+
 
 class CambioContraseña(PasswordChangeView):
     form_class = CambioContraseña
