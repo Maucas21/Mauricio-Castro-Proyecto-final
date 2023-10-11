@@ -11,7 +11,7 @@ class Blog(models.Model):
     )
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     titulo = RichTextField(max_length=200)
-    categoria = models.CharField(max_length=15, choices=BlogSeleccion, default='biología')
+    categoria = models.CharField(max_length=20, choices=BlogSeleccion, default='biología')
     descripcion = RichTextField(null=True, blank=True)
     FechaPublicacion = models.DateTimeField(auto_now_add=True)
     ImagenPost = models.ImageField(null=True, blank=True, upload_to="media/")
